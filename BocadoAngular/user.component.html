@@ -1,0 +1,62 @@
+<h3>Add User</h3>  
+<div class="row">  
+  <div class="col-sm-4"></div>  
+  <div class="col-sm-4" >  
+    <div [hidden]="submitted" style="width: 400px;">  
+      <form [formGroup]="usersaveform" #saveuser (ngSubmit)="saveUsser(saveUsser)">  
+          <div class="form-group">  
+              <label for="name">User Name</label>  
+              <input type="text" class="form-control"  formControlName="student_name" data-toggle="tooltip"   
+                 data-placement="right" title="Enter User Name" >  
+              <div class="alert alert-danger" *ngIf = "(UserName.touched) && (UserName.invalid)"   
+                style="margin-top: 5px;">  
+                  <span *ngIf="UserName.errors.required">User Name is Required</span>  
+                    <span *ngIf = "UserName.errors.minlength">   
+                        MinLength Error   
+                    </span>                     
+                </div>  
+          </div>  
+    
+          <div class="form-group">  
+              <label for="name">User Email</label>  
+              <input type="text" class="form-control" formControlName="user_email"   
+                data-toggle="tooltip" data-placement="right" title="Enter User Email">  
+                <div class="alert alert-danger" *ngIf = "(UserEmail.touched) && (UserEmail.invalid)"   
+                style="margin-top: 5px;">  
+                  <span *ngIf="UserEmail.errors.required">User Email is Required</span>  
+                    <span *ngIf = "UserEmail.errors.email">   
+                        Invalid Email Format   
+                    </span>                     
+                </div>  
+          </div>  
+    
+          <div class="form-group">  
+              <label for="branch"> Workspace</label>  
+                <select class="form-control" formControlName="student_branch" data-toggle="tooltip"   
+                      data-placement="right" title="Select Student Branch">  
+                    <option value="null">--Workspace--</option>  
+                  <option value="B-Tech">Add Workspace</option>  
+                  <option value="BCA">Update Workspace</option>  
+                  <option value="MCA">Delete Workspace</option>  
+                 
+                </select>  
+          </div>  
+    
+          <button type="submit" class="btn btn-success">Submit</button>  
+      </form>  
+  </div>  
+  </div>  
+  <div class="col-sm-4"></div>  
+</div>  
+<div class="row">  
+  <div class="col-sm-4"></div>  
+  <div class="col-sm-4">  
+    <div [hidden]="!submitted">  
+        <h4>User Added SuccessFully!</h4>  
+        <button (click)="addStudentForm()" class='btn btn-primary'>Create Another User</button>  
+     </div>        
+ </div>  
+ <div class="col-sm-4"></div>  
+</div>  
+
+
